@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1686020949 "/mnt/Data/Work/CV/CV.tex" "CV.pdf" "CV" 1686020960 0
-  "/mnt/Data/Work/CV/CV.tex" 1686020947 16707 a3ff0bb0d8d575b6e94dcd10d63d1cc7 ""
+["pdflatex"] 1686021144 "/mnt/Data/Work/CV/CV.tex" "CV.pdf" "CV" 1686021145 2
+  "/mnt/Data/Work/CV/CV.tex" 0 -1 0 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1685692256 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc" 1685692256 3031 6c4d3515bf7115d8518af1c9ab97ca44 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1685692256 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -78,9 +78,8 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1685692256 40684 9b9ec0b4288972636ff6a3b9c4238efc ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1685866290 4493604 868eb9f183785b6f5cdd229f8b5ca0e9 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1685866245 8204068 90c915b8e0c87c9f07bf08d30bd94d11 ""
-  "CV.aux" 1686020960 11070 45ee17d79bdb2e1871e3ceb428385f9b "pdflatex"
-  "CV.out" 1686020951 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "CV.tex" 1686020947 16707 a3ff0bb0d8d575b6e94dcd10d63d1cc7 ""
+  "CV.aux" 1686021144 11070 45ee17d79bdb2e1871e3ceb428385f9b "pdflatex"
+  "CV.out" 1686021134 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "images/2016local.png" 1686018112 647842 93a08c2d26a924fbcf452ade1f5652c9 ""
   "images/2016nacional.png" 1686018165 684129 975f7fe61a540cfb2781f0c28bb0dd68 ""
   "images/2017final.png" 1686018543 600746 7de593b9de8ed5419a1524f845a54bb8 ""
@@ -111,3 +110,4 @@
   "CV.out"
   "CV.pdf"
   (rewritten before read)
+  "CV.out"
