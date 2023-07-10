@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass{article}
 
 % Package for setting page margins
 \usepackage[top=1cm, bottom=1cm, left=2cm, right=2cm]{geometry}
@@ -7,20 +7,22 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
-
-% Package for managing section titles
+\usepackage{qrcode}
+\usepackage{xcolor}
 \usepackage{titlesec}
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
 
 % Package for customizing itemized lists
 \usepackage{enumitem}
 \setlist[itemize]{leftmargin=*}
-\usepackage{hyperref}
-
+ \usepackage[colorlinks=true, citecolor={red!70!black}, linkcolor={red!40!black}, urlcolor={blue!40!black}, pdfborder={0 0 0}]{hyperref}
+ 
 % Package for including images
 \usepackage{graphicx}
 \usepackage{multicol}
+
 \begin{document}
+
 
 \pagestyle{empty} % Remove page numbers
 
@@ -34,7 +36,7 @@
     \begin{minipage}[t]{0.7\textwidth}
         \vspace{0pt}
         \textbf{CURRICULUM VITAE}\\\\
-        \textbf{Name:} Javier Alejandro Oramas López\\
+        \textbf{Name:} Javier Alejandro Oramas Lóez\\
         \\
         \textbf{Phone:} +53 59334374 \\
         \textbf{Email:} javiale2000@gmail.com \\
@@ -62,185 +64,178 @@ Vocational Institute of Exact Sciences Ernesto Guevara, Cuba
 
 % Personal Projects section
 \section*{Personal Projects}
-\begin{minipage}{\textwidth}
-\parbox{0.8\linewidth}{\textbf{Distribute \href{https://autogoal.github.io/}{AutoGOAL}}}\hfill \textbf{06/2023}\\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Distributed file system for \href{https://autogoal.github.io/}{AutoGOAL}}}\hfill \textbf{06/2023} \\
 Academic Project\\
 (self discovery, failure tolerance, replication)\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\href{https://github.com/geeksLabTech/kade-drive}{see code}\\
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/kade-drive}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{Model to infer Cuba's contact matrix using Machine Learning}} \hfill \textbf{06/2023}\\
 Academic Project\\
 \href{https://github.com/geeksLabTech/epidemic-classification-ml-project}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/epidemic-classification-ml-project}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{DSL for Michaelson's language}} \hfill \textbf{01/2023}\\
 Academic Project\\
 Parser,lexer,syntax and semantic checkers.\\
 \href{https://github.com/geeksLabTech/compilation-dsl-project}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/compilation-dsl-project}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{FIFA World Cup prediction using AI planification, data-driven agent-based simulation.}}  \hfill  \textbf{12/2023}\\
 Academic Project\\
 \href{https://github.com/geeksLabTech/FIFA_World_Cup_2022}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/FIFA_World_Cup_2022}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{Development of a Web Server in C for Linux}} \hfill \textbf{01/2022}\\
 Academic Project\\
 \href{https://github.com/geeksLabTech/web_server}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/web_server}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{Development of a Linux Shell in C}} \hfill \textbf{12/2021}\\
 Academic Project\\
 \href{https://github.com/geeksLabTech/SO_Shell}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/SO_Shell}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{Development of a Functional MIPS Microprocessor}} \hfill \textbf{06/2021}\\
 Academic Project\\
 \href{https://github.com/JavierOramas/MIPS-Micro/blob/master/informe.pdf}{see report}\\
 \href{https://github.com/JavierOramas/MIPS-Micro}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/MIPS-Micro}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{TicTacToe game using Minimax in Python}} \hfill \textbf{05/2021}\\
 Academic Project\\
 \href{https://github.com/JavierOramas/TicTacToe_AI}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/TicTacToe_AI}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{Development of a Bot for FAQ automation with a knowledge base for a website}} \hfill \textbf{04/2021}\\
 Academic project\\
 Euclidean dot product\\
 \href{https://github.com/JavierOramas/FAQ-Chat-Bot-Nous}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/FAQ-Chat-Bot-Nous}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{Development of \hyperref[sec:laluu]{LaLuu} app for estimation of Energy consumption based on the Devices and its use time, }} \hfill \textbf{01/2021}\\
 Dart/Flutter\\
 \hyperref[sec:laluu_press]{Mentions about the LaLuu app in the Cuban press.}\\
 \href{https://github.com/geeksLabTech/LaLuu}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/LaLuu}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{Development of a tool for video/audio compression}} \hfill \textbf{11/2020}\\
 (video-diet, forked as diet-video for furthe development after original project being abandoned)\\
 href{https://pypi.org/project/diet-video/}{pypi}\\
 href{https://pypi.org/project/video-diet/}{original pypi}\\
 \href{https://github.com/JavierOramas/video-diet}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/video-diet}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{Development of a Server with web and mobile clients for microprocessor and Drives temperatures remotely.}} \hfill \textbf{08/2020}\\
 Using Python fo API development, Streamlit for WebApp and Dart/Flutter for Mobile client.\\
 \href{https://github.com/JavierOramas/temperatureMonitor}{see server code}\\
 \href{https://github.com/JavierOramas/temperatureMonitor-app}{see app code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/temperatureMonitor}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{Development of \hyperref[sec:covid]{Covid19CubaData} for analysis of the COVID-19 data in Cuba}} \hfill \textbf{07/2020}\\
 \href{https://github.com/covid19cuba/covid19cuba-action}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/covid19cuba/covid19cuba-action}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{Development of a \hyperref[sec:dengue]{Model to predict Dengue infections based on metheorological data using Machine Learning and Deep Learning}}} \hfill \textbf{02/2020}\\
 \href{https://github.com/JavierOramas/DengAI}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/DengAI}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{Development of \hyperref[sec:panamerican]{Lima 2019 Panamerican Games prediction}.}} \hfill \textbf{07/2019}\\
 Academic Project\\
 Using Machine Learning,  Python with SKLearn tools\\
 \href{https://github.com/JavierOramas/PanamericanPredictor}{see code}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/PanamericanPredictor}\\\\
+\begin{minipage}{0.8\textwidth}
 \parbox{0.8\linewidth}{\textbf{Development of "El Origen" videogame, using Unity with C\#.}} \hfill \textbf{02/2019}\\
 Academic Project\\
-\end{minipage}
+\end{minipage} \\
 
-% \begin{minipage}{\textwidth}
-% \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-% Academic Project\\
-% \\
-% \href{}{see code}\\
-% \end{minipage}
 \section*{Events}
-\begin{minipage}{\textwidth}
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{Delegate presenting the project "Predicting Qatar 2023 World Cup, a data driven agent based approach" }} \hfill \textbf{05/2023}\\
     \hyperref[sec:workshop]{1st Artificial Intelligence and Data Science Workshop.} SaberUH Event. Math and Computation faculty. Havana University.\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{Forum UH, presenting Qatar 2023 predictions.}} \hfill \textbf{12/2022}\\
     Havana University.\\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{\hyperref[sec:pythonpizza]{Python Pizza Holguín 2020}, Conference: Video-Diet: poniendo a dieta tu almacenamiento}} \hfill \textbf{11/2020}\\
-\end{minipage}
-\begin{minipage}{\textwidth}
-    \parbox{0.8\linewidth}{\textbf{\hyperref[sec:dengue]{Driven Data competition Predicting Dengue Cases} based on metheorological variables using Machine Learning and Deep Learning}
-    \href{https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread
-    }{DrivenData}
-    } \hfill \textbf{02/2020}\\
+\end{minipage} \\
+\begin{minipage}{0.8\textwidth}
+    \parbox{0.8\linewidth}{\textbf{\hyperref[sec:dengue]{Driven Data competition Predicting Dengue Cases} based on metheorological variables using Machine Learning and Deep Learning} \href{https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread}{DrivenData}} \hfill \textbf{02/2020}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
-    \parbox{0.8\linewidth}{\textbf{\hyperref[sec:panamerican]{International contest Prediction Model for the Lima 2019 Panamerican Games results}, using Machine Learning} 
-    \href{https://github.com/JavierOramas/PanamericanPredictor/blob/master/panamerican_predictor_paper.pdf}{see document}
-    \href{http://www.postdata.club/issues/201907/el-medallero-de-lima-2019-que-se-puede-esperar.html}{postdata publication}
+\end{minipage} \hfill \qrcode[height=0.6in]{https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread}\\\\
+\begin{minipage}{0.8\textwidth}
+    \parbox{0.8\linewidth}{\textbf{\hyperref[sec:panamerican]{International contest Prediction Model for the Lima 2019 Panamerican Games results}, using Machine Learning} }\\
+    \href{https://github.com/JavierOramas/PanamericanPredictor/blob/master/panamerican_predictor_paper.pdf}{see document}\\
+    \href{http://www.postdata.club/issues/201907/el-medallero-de-lima-2019-que-se-puede-esperar.html}{postdata publication}\\
     \hfill \textbf{07/2019}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{http://www.postdata.club/issues/201907/el-medallero-de-lima-2019-que-se-puede-esperar.html}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{MATCOM Game Festival 2019, videogame "El Origen" (The Origin)
     }} \hfill \textbf{02/2019}\\
     \\
 \end{minipage}
-\begin{minipage}{\textwidth}
+
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
-\begin{minipage}{\textwidth}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
     \\
-\end{minipage}
+\end{minipage} \hfill \qrcode[height=0.6in]{}\\
 
 % Skills section
 \section*{Skills}
-% \begin{minipage}{\textwidth}
+% \begin{minipage}{0.8\textwidth}
 \begin{multicols}{2}
 \raggedcolumns
 \textbf{Programming Languages}
@@ -276,12 +271,12 @@ Academic Project\\
     \item Numpy
 \end{itemize}
 \end{multicols}
-% \end{minipage}
+% \end{minipage} \hfill \qrcode[height=0.6in]{}\\
 
 
 \newpage
 \section*{Attachments}
-% \begin{minipage}{\textwidth}
+% \begin{minipage}{0.8\textwidth}
 \begin{figure}[h]
     \includegraphics[width=\textwidth]{images/bachelor.png}
     \caption{Science Bachelor certificate}
@@ -363,7 +358,7 @@ Academic Project\\
     \caption{\href{https://matcomgrader.com/post/5167/the-2017-acm-icpc-caribbean-finals}{Matcom Online Grader (oct 2017). The 2017 ACM-ICPC Caribbean Finals. Facultad de Matem?tica y Ciencia de la Computaci?n, Universidad de La Habana} screenshot 01/25/2022}
     \label{sec:3c}
 \end{figure}
-`\begin{figure}[h]
+\begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{images/icpc_classified.png}
     \caption{\href{ https://coj-forum.uci.cu/viewtopic.php?t=3315}{Caribbean Online Judge (nov 2017). Final Caribe?a del ACM - ICPC 2017.}, screenshot 01/25/2022}
@@ -439,18 +434,6 @@ Academic Project\\
     \caption{Recognition for second place obtained in the National Computer Science Competition, Marzo 2014, screenshot 01/25/2022}
     \label{sec:informatic}
 \end{figure}
-% \begin{figure}[h]
-    % \centering
-%     \includegraphics[width=\textwidth]{}
-%     \caption{, screenshot 01/25/2022}
-%     \label{sec:}
-% \end{figure}
 
-% \end{minipage}
-
-% \newpage
-% % References section
-% \section*{References}
-% Available upon request.
 
 \end{document}
