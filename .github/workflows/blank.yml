@@ -1,0 +1,28 @@
+name: LaTeX Build EN
+
+on:
+  push:
+    branches:
+      - master  # Replace with your branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up LaTeX
+        uses: dante-ev/latex-action@v2
+        with:
+          engine: pdflatex  # Replace with your preferred LaTeX engine
+
+      - name: Build LaTeX
+        run: pdflatex -interaction=nonstopmode -halt-on-error CV_Javier_EN.tex  # Replace with your main LaTeX file name
+
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: CV_Javier_EN.pdf  # Replace with your output PDF file name
+          path: CV_Javier_EN.pdf  # Replace with the actual path to your output PDF file
