@@ -23,10 +23,10 @@ jobs:
         with:
           root_file: CV_Javier_EN.aux
           compiler: lualatex
-          args: 
-      - name: lualatex main
-        uses: dante-ev/latex-action@latest
-        with:
-          root_file: CV_Javier_EN.tex
-          compiler: lualatex
           args: -interaction=nonstopmode -shell-escape
+      # - name: lualatex main
+      #   uses: dante-ev/latex-action@latest
+      #   with:
+      #     root_file: CV_Javier_EN.tex
+      #     compiler: lualatex
+      #     args: -interaction=nonstopmode -shell-escape
