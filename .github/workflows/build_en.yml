@@ -1,22 +1,22 @@
-name: LaTeX Build EN
+name: LaTeX Build
 
 on:
   push:
     branches:
-      - master  # Replace with your branch name
+      - master  # Change this to match the branch you want to trigger the build on
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Set up LaTeX
-        uses: dante-ev/latex-action@v2
+        uses: xu-cheng/latex-action@v2
         with:
-          engine: pdflatex  # Replace with your preferred LaTeX engine
+          root_file: CV_Javier_EN.tex  # Replace with your main LaTeX file name
 
       - name: Build LaTeX
         run: pdflatex -interaction=nonstopmode -halt-on-error CV_Javier_EN.tex  # Replace with your main LaTeX file name
