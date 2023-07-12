@@ -18,6 +18,11 @@ jobs:
           root_file: CV_Javier_EN.tex
           compiler: lualatex
           args: -interaction=nonstopmode -shell-escape
+      - uses: dev-drprasad/delete-tag-and-release@v1.0 # PRERELEASE is v1.0 and can also be used to test and give us feedback
+        with:
+          tag_name: Release CV_EN #(required) tag name to delete 
+          github_token: ${{ secrets.GITHUB_TOKEN }} # (required) a GitHub token with write access to the repo that needs to be modified
+          delete_release: true #(optional) default: true 
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -28,11 +33,6 @@ jobs:
           release_name: Release CV_EN
           draft: false
           prerelease: false
-      - uses: dev-drprasad/delete-tag-and-release@v1.0 # PRERELEASE is v1.0 and can also be used to test and give us feedback
-        with:
-          tag_name: Release CV_EN #(required) tag name to delete 
-          github_token: ${{ secrets.GITHUB_TOKEN }} # (required) a GitHub token with write access to the repo that needs to be modified
-          delete_release: true #(optional) default: true 
       - name: Upload Release Asset
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
