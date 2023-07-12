@@ -44,7 +44,7 @@ jobs:
           prerelease: false
 
       - name: Upload Release Asset
-        id: upload-release-asset 
+        id: upload-release-asset en
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -54,7 +54,7 @@ jobs:
           asset_name: CV_Javier_EN.pdf
           asset_content_type: pdf 
       - name: Upload Release Asset
-        id: upload-release-asset 
+        id: upload-release-asset es
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
