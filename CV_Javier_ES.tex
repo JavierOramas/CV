@@ -1,260 +1,345 @@
 \documentclass{article}
 
-% Package for setting page margins
+% Paquete para establecer los márgenes de la página
 \usepackage[top=1cm, bottom=1cm, left=2cm, right=2cm]{geometry}
 
-% Package for better font handling
+% Paquete para mejorar el manejo de fuentes
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{qrcode}
 \usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage{svg}
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
 
-% Package for customizing itemized lists
+% Paquete para personalizar listas con viñetas
 \usepackage{enumitem}
 \setlist[itemize]{leftmargin=*}
- \usepackage[colorlinks=true, citecolor={red!70!black}, linkcolor={red!40!black}, urlcolor={blue!40!black}, pdfborder={0 0 0}]{hyperref}
- 
-% Package for including images
+\usepackage[colorlinks=true, citecolor={red!70!black}, linkcolor={red!40!black}, urlcolor={blue!40!black}, pdfborder={0 0 0}]{hyperref}
+
+% Paquete para incluir imágenes
 \usepackage{graphicx}
 \usepackage{multicol}
 
 \begin{document}
 
+\pagestyle{empty} % Eliminar números de página
 
-\pagestyle{empty} % Remove page numbers
-
-% Header section with image
+% Sección del encabezado con imagen
 \begin{center}
-    \begin{minipage}[t]{0.2\textwidth}
-        \vspace{0pt}
-        \includegraphics[width=3cm]{img.png}
-    \end{minipage}
-    \hspace{1cm}
-    \begin{minipage}[t]{0.7\textwidth}
-        \vspace{0pt}
-        \textbf{CURRICULUM VITAE}\\\\
-        \textbf{Name:} Javier Alejandro Oramas López\\
-        \\
-        \textbf{Phone:} +53 59334374 \\
-        \textbf{Email:} javiale2000@gmail.com \\
-        \textbf{Date of Birth:}  02/25/2000\\
-        \textbf{github:} \href{https://github.com/JavierOramas}{JavierOramas} \\
-        \textbf{linkedin:} \href{https://www.linkedin.com/in/javier-alejandro-oramas-l%C3%B3pez-7ab47b160/}{javier-alejandro-oramas} \\
-    \end{minipage}
+\begin{minipage}[t]{0.2\textwidth}
+\vspace{0pt}
+\includegraphics[width=3cm]{img.png}
+\end{minipage}
+\hspace{1cm}
+\begin{minipage}[t]{0.7\textwidth}
+\vspace{0pt}
+\textbf{CURRICULUM VITAE}\\
+\textbf{Nombre:} Javier Alejandro Oramas López\
+\
+\textbf{Teléfono:} +53 59334374 \
+\textbf{Correo electrónico:} javiale2000@gmail.com \
+\textbf{Fecha de nacimiento:} 02/25/2000\
+\textbf{github:} \href{https://github.com/JavierOramas}{JavierOramas} \
+\textbf{linkedin:} \href{https://www.linkedin.com/in/javier-alejandro-oramas-l%C3%B3pez-7ab47b160/}{javier-alejandro-oramas} \
+\end{minipage}
 \end{center}
 
-% Education section
-\section*{Education}
-\textbf{Bachelors Degree Student in Computer Science} \hfill since \textbf{2018}\\
-\href{https://matcom.in/}{MATCOM}, \href{https://uh.cu}{Havana University}, Cuba\\
-\vspace{0.1cm}\\
-\textbf{\hyperref[sec:bachelor]{Science Bachelor}} \hfill \textbf{2018}\\
-Vocational Institute of Exact Sciences  Ernesto Guevara, Cuba
+% Sección de educación
+\section*{Educación}
+\textbf{Estudiante de Licenciatura en Ciencias de la Computación} \hfill desde \textbf{2018}\
+\href{https://matcom.in/}{MATCOM}, \href{https://uh.cu}{Universidad de La Habana}, Cuba\
+\vspace{0.1cm}\
+\textbf{\hyperref[sec:bachelor]{Bachiller en Ciencias}} \hfill \textbf{2018}\
+Instituto Vocacional de Ciencias Exactas Ernesto Guevara, Cuba
 
-% % Experience section
-% \section*{Experience}
-% \textbf{Job Title} \hfill \textbf{Year}\\
-% Company Name, Location
+% % Sección de experiencia
+% \section*{Experiencia}
+% \textbf{Cargo} \hfill \textbf{Año}\
+% Nombre de la empresa, ubicación
 % \begin{itemize}
-%     \item Description of responsibilities and achievements.
+% \item Descripción de responsabilidades y logros.
 % \end{itemize}
 
-% Personal Projects section
-\section*{Personal Projects}
+% Sección de proyectos personales
+\section*{Proyectos Personales}
 \begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Distributed file system for \href{https://autogoal.github.io/}{AutoGOAL}}}\hfill \textbf{06/2023} \\
-Academic Project\\
-(self discovery, failure tolerance, replication)\\
-\href{https://github.com/geeksLabTech/kade-drive}{see code}\\
+\parbox{0.8\linewidth}{\textbf{Sistema de archivos distribuido para \href{https://autogoal.github.io/}{AutoGOAL}}}\hfill \textbf{06/2023} \
+Proyecto Académico\
+(descubrimiento automático, tolerancia a fallas, replicación)\
+\href{https://github.com/geeksLabTech/kade-drive}{ver código}\
 \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/kade-drive}\\\\
 \begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Model to infer Cuba's contact matrix using Machine Learning}} \hfill \textbf{06/2023}\\
-Academic Project\\
-\href{https://github.com/geeksLabTech/epidemic-classification-ml-project}{see code}\\
+\parbox{0.8\linewidth}{\textbf{Modelo para inferir la matriz de contactos de Cuba utilizando Aprendizaje Automático}} \hfill \textbf{06/2023}\
+Proyecto Académico\
+\href{https://github.com/geeksLabTech/epidemic-classification-ml-project}{ver código}\
 \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/epidemic-classification-ml-project}\\\\
 \begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{DSL for Michaelson's language}} \hfill \textbf{01/2023}\\
-Academic Project\\
-Parser,lexer,syntax and semantic checkers.\\
-\href{https://github.com/geeksLabTech/compilation-dsl-project}{see code}\\
+\parbox{0.8\linewidth}{\textbf{DSL para el lenguaje de Michaelson}} \hfill \textbf{01/2023}\
+Proyecto Académico\
+Análisis sintáctico, léxico, comprobación de sintaxis y semántica.\
+\href{https://github.com/geeksLabTech/compilation-dsl-project}{ver código}\
 \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/compilation-dsl-project}\\\\
 \begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{FIFA World Cup prediction using AI planification, data-driven agent-based simulation.}}  \hfill  \textbf{12/2023}\\
-Academic Project\\
-\href{https://github.com/geeksLabTech/FIFA_World_Cup_2022}{see code}\\
+\parbox{0.8\linewidth}{\textbf{Predicción de la Copa Mundial de la FIFA utilizando planificación de IA y simulación basada en agentes impulsada por datos}} \hfill \textbf{12/2023}\
+Proyecto Académico\
+\href{https://github.com/geeksLabTech/FIFA_World_Cup_2022}{ver código}\
 \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/FIFA_World_Cup_2022}\\\\
 \begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Development of a Web Server in C for Linux}} \hfill \textbf{01/2022}\\
-Academic Project\\
-\href{https://github.com/geeksLabTech/web_server}{see code}\\
+\parbox{0.8\linewidth}{\textbf{Desarrollo de un servidor web en C para Linux}} \hfill \textbf{01/2022}\
+Proyecto Académico\
+\href{https://github.com/geeksLabTech/web_server}{ver código}\
 \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/web_server}\\\\
 \begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Development of a Linux Shell in C}} \hfill \textbf{12/2021}\\
-Academic Project\\
-\href{https://github.com/geeksLabTech/SO_Shell}{see code}\\
-\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/SO_Shell}\\\\
-\begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Development of a Functional MIPS Microprocessor}} \hfill \textbf{06/2021}\\
-Academic Project\\
-\href{https://github.com/JavierOramas/MIPS-Micro/blob/master/informe.pdf}{see report}\\
-\href{https://github.com/JavierOramas/MIPS-Micro}{see code}\\
-\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/MIPS-Micro}\\\\
-\begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{TicTacToe game using Minimax in Python}} \hfill \textbf{05/2021}\\
-Academic Project\\
-\href{https://github.com/JavierOramas/TicTacToe_AI}{see code}\\
-\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/TicTacToe_AI}\\\\
-\begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Development of a Bot for FAQ automation with a knowledge base for a website}} \hfill \textbf{04/2021}\\
-Academic project\\
-Euclidean dot product\\
-\href{https://github.com/JavierOramas/FAQ-Chat-Bot-Nous}{see code}\\
-\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/FAQ-Chat-Bot-Nous}\\\\
-\begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Development of \hyperref[sec:laluu]{LaLuu} app for estimation of Energy consumption based on the Devices and its use time, }} \hfill \textbf{01/2021}\\
-Dart/Flutter\\
-\hyperref[sec:laluu_press]{Mentions about the LaLuu app in the Cuban press.}\\
-\href{https://github.com/geeksLabTech/LaLuu}{see code}\\
-\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/LaLuu}\\\\
-\begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Development of a tool for video/audio compression}} \hfill \textbf{11/2020}\\
-(video-diet, forked as diet-video for furthe development after original project being abandoned)\\
-href{https://pypi.org/project/diet-video/}{pypi}\\
-href{https://pypi.org/project/video-diet/}{original pypi}\\
-\href{https://github.com/JavierOramas/video-diet}{see code}\\
-\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/video-diet}\\\\
-\begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Development of a Server with web and mobile clients for microprocessor and Drives temperatures remotely.}} \hfill \textbf{08/2020}\\
-Using Python fo API development, Streamlit for WebApp and Dart/Flutter for Mobile client.\\
-\href{https://github.com/JavierOramas/temperatureMonitor}{see server code}\\
-\href{https://github.com/JavierOramas/temperatureMonitor-app}{see app code}\\
-\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/temperatureMonitor}\\\\
-\begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Development of \hyperref[sec:covid]{Covid19CubaData} for analysis of the COVID-19 data in Cuba}} \hfill \textbf{07/2020}\\
-\href{https://github.com/covid19cuba/covid19cuba-action}{see code}\\
-\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/covid19cuba/covid19cuba-action}\\\\
-\begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Development of a \hyperref[sec:dengue]{Model to predict Dengue infections based on metheorological data using Machine Learning and Deep Learning}}} \hfill \textbf{02/2020}\\
-\href{https://github.com/JavierOramas/DengAI}{see code}\\
-\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/DengAI}\\\\
-\begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Development of \hyperref[sec:panamerican]{Lima 2019 Panamerican Games prediction}.}} \hfill \textbf{07/2019}\\
-Academic Project\\
-Using Machine Learning,  Python with SKLearn tools\\
-\href{https://github.com/JavierOramas/PanamericanPredictor}{see code}\\
+    \parbox{0.8\linewidth}{\textbf{Desarrollo de una Shell de Linux en C}} \hfill \textbf{12/2021}\
+    Proyecto académico\
+    \href{https://github.com/geeksLabTech/SO_Shell}{ver código}\
+    \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/SO_Shell}\\\\
+    \begin{minipage}{0.8\textwidth}
+    \parbox{0.8\linewidth}{\textbf{Desarrollo de un Microprocesador MIPS Funcional}} \hfill \textbf{06/2021}\
+    Proyecto académico\
+    \href{https://github.com/JavierOramas/MIPS-Micro/blob/master/informe.pdf}{ver informe}\
+    \href{https://github.com/JavierOramas/MIPS-Micro}{ver código}\
+    \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/MIPS-Micro}\\\\
+    \begin{minipage}{0.8\textwidth}
+    \parbox{0.8\linewidth}{\textbf{Juego de TicTacToe utilizando el algoritmo Minimax en Python}} \hfill \textbf{05/2021}\
+    Proyecto académico\
+    \href{https://github.com/JavierOramas/TicTacToe_AI}{ver código}\
+    \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/TicTacToe_AI}\\\\
+    \begin{minipage}{0.8\textwidth}
+    \parbox{0.8\linewidth}{\textbf{Desarrollo de un Bot para automatizar preguntas frecuentes con una base de conocimientos para un sitio web}} \hfill \textbf{04/2021}\
+    Proyecto académico\
+    Producto escalar euclidiano\
+    \href{https://github.com/JavierOramas/FAQ-Chat-Bot-Nous}{ver código}\
+    \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/FAQ-Chat-Bot-Nous}\\\\
+    \begin{minipage}{0.8\textwidth}
+    \parbox{0.8\linewidth}{\textbf{Desarrollo de la aplicación \hyperref[sec:laluu]{LaLuu} para estimar el consumo de energía basado en los dispositivos y su tiempo de uso,}} \hfill \textbf{01/2021}\
+    Dart/Flutter\
+    \hyperref[sec:laluu_press]{Menciones sobre la aplicación LaLuu en la prensa cubana.}\
+    \href{https://github.com/geeksLabTech/LaLuu}{ver código}\
+    \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/geeksLabTech/LaLuu}\\\\
+    \begin{minipage}{0.8\textwidth}
+    \parbox{0.8\linewidth}{\textbf{Desarrollo de una herramienta para compresión de video/audio}} \hfill \textbf{11/2020}\
+    (video-diet, bifurcado como diet-video para continuar el desarrollo después de que el proyecto original fue abandonado)\
+    \href{https://pypi.org/project/diet-video/}{pypi}\\
+    \href{https://pypi.org/project/video-diet/}{pypi original}\
+    \href{https://github.com/JavierOramas/video-diet}{ver código}\
+    \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/video-diet}\\\\
+    \begin{minipage}{0.8\textwidth}
+    \parbox{0.8\linewidth}{\textbf{Desarrollo de un servidor con clientes web y móvil para controlar las temperaturas del microprocesador y los discos de forma remota.}} \hfill \textbf{08/2020}\
+    Utilizando Python para el desarrollo de la API, Streamlit para la aplicación web y Dart/Flutter para el cliente móvil.\
+    \href{https://github.com/JavierOramas/temperatureMonitor}{ver código del servidor}\
+    \href{https://github.com/JavierOramas/temperatureMonitor-app}{ver código de la aplicación}\
+    \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/temperatureMonitor}\\\\
+    \begin{minipage}{0.8\textwidth}
+    \parbox{0.8\linewidth}{\textbf{Desarrollo de \hyperref[sec:covid]{Covid19CubaData} para el análisis de los datos de COVID-19 en Cuba}} \hfill \textbf{07/2020}\
+    \href{https://github.com/covid19cuba/covid19cuba-action}{ver código}\
+    \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/covid19cuba/covid19cuba-action}\\\\
+    \begin{minipage}{0.8\textwidth}
+    \parbox{0.8\linewidth}{\textbf{Desarrollo de un \hyperref[sec:dengue]{modelo para predecir las infecciones de Dengue basado en datos meteorológicos utilizando Aprendizaje Automático y Aprendizaje Profundo}}} \hfill \textbf{02/2020}\
+    \href{https://github.com/JavierOramas/DengAI}{ver código}\
+    \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/DengAI}\\\\
+    \begin{minipage}{0.8\textwidth}
+    \parbox{0.8\linewidth}{\textbf{Desarrollo de \hyperref[sec:panamerican]{pronóstico de los Juegos Panamericanos Lima 2019}.}} \hfill \textbf{07/2019}\
+    Proyecto académico\
+    Utilizando Aprendizaje Automático, Python con herramientas de SKLearn\
+    \href{https://github.com/JavierOramas/PanamericanPredictor}{ver código}\
 \end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/PanamericanPredictor}\\\\
 \begin{minipage}{0.8\textwidth}
-\parbox{0.8\linewidth}{\textbf{Development of "El Origen" videogame, using Unity with C\#.}} \hfill \textbf{02/2019}\\
-Academic Project\\
+\parbox{0.8\linewidth}{\textbf{Desarrollo del videojuego "El Origen" utilizando Unity con C\#.}} \hfill \textbf{02/2019}\\
+Proyecto académico\\
 \end{minipage} \\
+\section*{Eventos}
 
-\section*{Events}
 \begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{Delegate presenting the project "Predicting Qatar 2023 World Cup, a data driven agent based approach" }} \hfill \textbf{05/2023}\\
-    \hyperref[sec:workshop]{1st Artificial Intelligence and Data Science Workshop.} SaberUH Event. Math and Computation faculty. Havana University.\\
-\end{minipage} \\
+\parbox{0.8\linewidth}{\textbf{Delegado presentando el proyecto "Predicción de la Copa Mundial de Qatar 2023, enfoque basado en agentes impulsado por datos"}} \hfill \textbf{05/2023}\
+\hyperref[sec:workshop]{1er Taller de Inteligencia Artificial y Ciencia de Datos.} Evento SaberUH. Facultad de Matemática y Computación. Universidad de La Habana.\
+\end{minipage} \
 \begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{Forum UH, presenting Qatar 2023 predictions.}} \hfill \textbf{12/2022}\\
-    Havana University.\\
-\end{minipage}\\
+\parbox{0.8\linewidth}{\textbf{Foro UH, presentando predicciones para Qatar 2023.}} \hfill \textbf{12/2022}\
+Universidad de La Habana.\
+\end{minipage}\
 \begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{\hyperref[sec:pythonpizza]{Python Pizza Holguín 2020}, Conference: Video-Diet: poniendo a dieta tu almacenamiento}} \hfill \textbf{11/2020}\\
-\end{minipage} \\
+\parbox{0.8\linewidth}{\textbf{\hyperref[sec:pythonpizza]{Python Pizza Holguín 2020}, Conferencia: Video-Diet: poniendo a dieta tu almacenamiento}} \hfill \textbf{11/2020}\
+\end{minipage} \
 \begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{\hyperref[sec:dengue]{Driven Data competition Predicting Dengue Cases} based on metheorological variables using Machine Learning and Deep Learning} \href{https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread}{DrivenData}} \hfill \textbf{02/2020}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread}\\\\
+\parbox{0.8\linewidth}{\textbf{\hyperref[sec:dengue]{Competencia Driven Data para predecir casos de Dengue} basada en variables meteorológicas utilizando Aprendizaje Automático y Aprendizaje Profundo} \href{https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread}{DrivenData}} \hfill \textbf{02/2020}\
+\
+\end{minipage} \hfill \qrcode[height=0.6in]{https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread}\\
 \begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{\hyperref[sec:panamerican]{International contest Prediction Model for the Lima 2019 Panamerican Games results}, using Machine Learning} }\\
-    \href{https://github.com/JavierOramas/PanamericanPredictor/blob/master/panamerican_predictor_paper.pdf}{see document}\\
-    \href{http://www.postdata.club/issues/201907/el-medallero-de-lima-2019-que-se-puede-esperar.html}{postdata publication}\\
-    \hfill \textbf{07/2019}\\
-    \\
+\parbox{0.8\linewidth}{\textbf{\hyperref[sec:panamerican]{Concurso Internacional de Predicción para los resultados de los Juegos Panamericanos Lima 2019}, utilizando Aprendizaje Automático} }\
+\href{https://github.com/JavierOramas/PanamericanPredictor/blob/master/panamerican_predictor_paper.pdf}{ver documento}\
+\href{http://www.postdata.club/issues/201907/el-medallero-de-lima-2019-que-se-puede-esperar.html}{publicación postdata}\
+\hfill \textbf{07/2019}\
+\
 \end{minipage} \hfill \qrcode[height=0.6in]{http://www.postdata.club/issues/201907/el-medallero-de-lima-2019-que-se-puede-esperar.html}\\
 \begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{MATCOM Game Festival 2019, videogame "El Origen" (The Origin)
-    }} \hfill \textbf{02/2019}\\
-    \\
-\end{minipage}
+\parbox{0.8\linewidth}{\textbf{Festival de Juegos MATCOM 2019, videojuego "El Origen"}} \hfill \textbf{02/2019}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Concurso Nacional ACM-ICPC 2018, UH-KEJ (Participando como equipo representante de la Universidad de La Habana)} }\hfill \textbf{10/2018}\
+\href{https://icpc.global/regionals/finder/cnc-2018/standings}{resultados}
+\
+\end{minipage} \hfill \qrcode[height=0.6in]{https://icpc.global/regionals/finder/cnc-2018/standings}\\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Concurso Local ACM-ICPC 2018, UH-KEJ (Participando como equipo representante de la Universidad de La Habana)}} \hfill \textbf{07/2018}\
+\
+\end{minipage} \hfill \qrcode[height=0.6in]{https://matcomgrader.com/post/5179/resultados-del-concurso-local-caribeno-2018}\\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Final del Caribe ACM-ICPC 2017, Equipo3C-1 (Participando como equipo invitado de escuelas preuniversitarias)
+Carta de invitación del Director General, Final del Caribe ACM-ICPC 2017}} \hfill \textbf{11/2017}\
+\href{https://matcomgrader.com/post/5167/the-2017-acm-icpc-caribbean-finals}{ver enlace}
+\href{https://coj-forum.uci.cu/viewtopic.php?t=3315}{página de coj (competencia)}
+\
+\end{minipage} \hfill \qrcode[height=0.6in]{https://matcomgrader.com/post/5167/the-2017-acm-icpc-caribbean-finals}\\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Final Cubana ACM-ICPC 2017, Equipo3C-1 (Participando como equipo invitado de escuelas preuniversitarias)}} \hfill \textbf{10/2017}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Olimpiada Cubana de Informática 2016-2017, para estudiantes preuniversitarios en Cuba.}} \hfill \textbf{03/2017}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{\hyperref[sec:ibero]{Concurso Iberoamericano de Correspondencia de Computación}, México 2016, representando a Cuba.}} \hfill \textbf{07/2016}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Preselección Nacional para la Olimpiada Internacional de Informática.}} \hfill \textbf{04-07/2016}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Copa Nacional de Informática para Estudiantes Preuniversitarios en Cuba.}} \hfill \textbf{01/2016}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Copa Regional de Concurso de Informática, Camagüey 2015 para estudiantes preuniversitarios en Cuba}} \hfill \textbf{12/2015}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Concurso Nacional ACM-ICPC 2015-2016, Equipo3C-1 (Participando como equipo invitado de escuelas preuniversitarias)}} \hfill \textbf{10/2015}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Concurso Local ACM-ICPC 2015-2016, Equipo3C-1 (Participando como equipo invitado de escuelas preuniversitarias)}} \hfill \textbf{09/2015}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Olimpiada Cubana de Informática 2013-2014, para estudiantes preuniversitarios en Cuba.}} \hfill \textbf{02/2014}\
+\
+\end{minipage}\
+
+\section*{Premios y Distinciones}
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Mejor Predicción del mundo en la Copa Mundial de la FIFA}} \hfill \textbf{12/2022}\
+\href{https://www.postdata.club/suplementos/mundial-qatar/pronosticando-qatar.html}{postdata.club}
+\
+\end{minipage} \hfill \qrcode[height=0.6in]{https://www.postdata.club/suplementos/mundial-qatar/pronosticando-qatar.html}\\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Mejor predicción del mundo (para los resultados de la delegación cubana) en los Juegos Panamericanos Lima 2019, utilizando Aprendizaje Automático}} \hfill \textbf{07/2019}\
+\href{http://www.postdata.club/issues/201907/el-medallero-de-lima-2019-que-se-puede-esperar.html}{postdata.club}
+\
+\end{minipage} \hfill \qrcode[height=0.6in]{https://github.com/JavierOramas/PanamericanPredictor}\\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{3er lugar en el Festival de Juegos MATCOM 2019, Videojuego "El Origen"}} \hfill \textbf{02/2019}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{13er lugar en el Caribe, Concurso Nacional ACM-ICPC 2018, UH-KEJ (Participando como equipo representante de la Universidad de La Habana)}} \hfill \textbf{10/2018}\
+\href{https://icpc.global/regionals/finder/cnc-2018/standings}{resultados}
+\
+\end{minipage} \hfill \qrcode[height=0.6in]{https://icpc.global/regionals/finder/cnc-2018/standings}\\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{7mo lugar en el Concurso Local ACM-ICPC 2018, UH-KEJ (Participando como equipo representante de la Universidad de La Habana)}} \hfill \textbf{07/2018}\
+\href{https://matcomgrader.com/post/5179/resultados-del-concurso-local-caribeno-2018}{resultados}
+\
+\end{minipage} \hfill \qrcode[height=0.6in]{https://matcomgrader.com/post/5179/resultados-del-concurso-local-caribeno-2018}\\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Concesión directa, por resolución del Ministerio de Educación, de la carrera de Ciencias de la Computación en la Universidad de La Habana, según los logros obtenidos en la Final del Caribe ACM-ICPC 2017}} \hfill \textbf{06/2018}\
+\
+\end{minipage} \
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{26to lugar en el Caribe y 200mo en LATAM, Final del Caribe ACM-ICPC 2017, Equipo3C-1 (Participando como equipo invitado de escuelas preuniversitarias)}} \hfill \textbf{11/2017}\
+\href{https://matcomgrader.com/media/posts/5167/ranking/caribbean.png}{Posición en la región}
+\href{https://matcomgrader.com/media/posts/5167/ranking/general.png}{Posición en el continente}
+\
+\end{minipage} \hfill \qrcode[height=0.6in]{https://matcomgrader.com/media/posts/5167/ranking/caribbean.png}\\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{5to lugar en la Final Cubana del ACM-ICPC, Equipo3C-1}} \hfill \textbf{10/2017}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{Tercer lugar en el concurso "UCLV CUP" en la Universidad Central "Marta Abreu" de Las Villas}} \hfill \textbf{06/2017}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{1er lugar en el Concurso Nacional de Programación de Cuba}} \hfill \textbf{01/2017}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{4to lugar en la Copa Lenin}} \hfill \textbf{01/2017}\
+\
+\end{minipage}\
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{1er lugar en las Finales Nacionales del ACM-ICPC 2015-2016 en UCLV }} \hfill \textbf{10/2015}\
+\
+\end{minipage} \
+\begin{minipage}{0.8\textwidth}
+\parbox{0.8\linewidth}{\textbf{3er lugar en las Finales Locales del ACM-ICPC 2015-2016 en UCLV (Participando como equipo invitado de escuelas preuniversitarias)}} \hfill \textbf{09/2015}\
+\
+\end{minipage}\
+
+\section*{Membresías}
 
 \begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\parbox{0.8\linewidth}{\textbf{Grupo de Investigación en Inteligencia Artificial en la Facultad de Matemática y Computación de la Universidad de La Habana}} \hfill \textbf{Desde 2019}\
+\
+\end{minipage}\
 \begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\parbox{0.8\linewidth}{\textbf{Preselección Nacional Cubana para la Olimpiada Internacional de Informática}} \hfill \textbf{04/2016-07/2016}\
+\
+\end{minipage}\
 \begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
-\begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
-\begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
-\begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
-\begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
-\begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
-\begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
-\begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
-\begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
-\begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
-\begin{minipage}{0.8\textwidth}
-    \parbox{0.8\linewidth}{\textbf{}} \hfill \textbf{}\\
-    \\
-\end{minipage} \hfill \qrcode[height=0.6in]{}\\
+\parbox{0.8\linewidth}{\textbf{Centro de Concursos Provincial, Villa Clara, Cuba}} \hfill \textbf{04/2016-07/2016}\
+\
+\end{minipage}\
 
+\newpage
 % Skills section
-\section*{Skills}
+\section*{Habilidades}
 % \begin{minipage}{0.8\textwidth}
 \begin{multicols}{2}
 \raggedcolumns
-\textbf{Programming Languages}
+\textbf{Lenguajes de Programación}
+\section*{Languages}
 \begin{itemize}
-    \item Python
-    \item C
-    \item C++
-    \item C\#
-    \item SQL
-    \item Rust
-    \item Go
-    \item Dart
-    \item Haskell
-    \item Javascript
+    \item \includesvg[height=10pt]{images/icons/python}
+    Python
+    \item \includesvg[height=10pt]{images/icons/c}
+    C
+    \item \includesvg[height=10pt]{images/icons/cpp}
+    C++
+    \item \includesvg[height=10pt]{images/icons/csharp}
+    C\#
+    \item \includesvg[height=10pt]{images/icons/mysql-original}
+    SQL
+    \item \includesvg[height=10pt]{images/icons/rust-plain}
+    Rust
+    \item \includesvg[height=10pt]{images/icons/go-original-wordmark}
+    Go
+    \item \includesvg[height=10pt]{images/icons/dart}
+    Dart
+    \item \includesvg[height=10pt]{images/icons/haskell-original}
+    Haskell
+    \item \includesvg[height=10pt]{images/icons/javascript-original}
+    Javascript
 \end{itemize}
-\columnbreak
-\textbf{Other Technologies}
+
+\section*{Otras Tecnologías}
 \begin{itemize}
-    \item SKLearn
+    \item \includesvg[height=10pt]{} SKLearn
     \item Transformers
     \item Tensorflow
     \item Pytorch
@@ -270,12 +355,12 @@ Academic Project\\
     \item Pandas
     \item Numpy
 \end{itemize}
-\end{multicols}
-% \end{minipage} \hfill \qrcode[height=0.6in]{}\\
 
+\end{multicols}
+% \end{minipage}\
 
 \newpage
-\section*{Attachments}
+\section*{Anexos}
 % \begin{minipage}{0.8\textwidth}
 \begin{figure}[h]
     \includegraphics[width=\textwidth]{images/bachelor.png}
