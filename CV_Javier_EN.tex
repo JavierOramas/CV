@@ -10,6 +10,10 @@
 \usepackage{qrcode}
 \usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{svg}
+
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
 
 % Package for customizing itemized lists
@@ -292,8 +296,6 @@ Academic Project\\
     \\
 \end{minipage}\\
 
-\section*{Membersips}
-
 \begin{minipage}{0.8\textwidth}
     \parbox{0.8\linewidth}{\textbf{Research Group in Artifitial Intelligence at Facultad de Matemática y Computación de la Universidad de La Habana (Computer Science and Mathematics Faculty, Havana University)
     }} \hfill \textbf{Since 2019}\\
@@ -318,21 +320,31 @@ Academic Project\\
 \raggedcolumns
 \textbf{Programming Languages}
 \begin{itemize}
-    \item Python
-    \item C
-    \item C++
-    \item C\#
-    \item SQL
-    \item Rust
-    \item Go
-    \item Dart
-    \item Haskell
-    \item Javascript
+    \item \includesvg[height=10pt]{images/icons/python}
+    Python
+    \item \includesvg[height=10pt]{images/icons/c}
+    C
+    \item \includesvg[height=10pt]{images/icons/cpp}
+    C++
+    \item \includesvg[height=10pt]{images/icons/csharp}
+    C\#
+    \item \includesvg[height=10pt]{images/icons/mysql-original}
+    SQL
+    \item \includesvg[height=10pt]{images/icons/rust-plain}
+    Rust
+    \item \includesvg[height=10pt]{images/icons/go-original-wordmark}
+    Go
+    \item \includesvg[height=10pt]{images/icons/dart}
+    Dart
+    \item \includesvg[height=10pt]{images/icons/haskell-original}
+    Haskell
+    \item \includesvg[height=10pt]{images/icons/javascript-original}
+    Javascript
 \end{itemize}
-\columnbreak
-\textbf{Other Technologies}
+
+\section*{Otras Tecnologías}
 \begin{itemize}
-    \item SKLearn
+    \item \includesvg[height=10pt]{} SKLearn
     \item Transformers
     \item Tensorflow
     \item Pytorch
@@ -348,9 +360,9 @@ Academic Project\\
     \item Pandas
     \item Numpy
 \end{itemize}
-\end{multicols}
-% \end{minipage}\\
 
+\end{multicols}
+% \end{minipage}\
 
 \newpage
 \section*{Attachments}
