@@ -32,14 +32,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }} # (required) a GitHub token with write access to the repo that needs to be modified
           delete_release: true #(optional) default: true 
 
-      - name: Commit and Push new file         
-        run: 
-            git config user.name JavierOramas 
-            git config user.email javiale2000@gmail.com           
-            git add .           
-            git commit -m "add PDF file"           
-            git push
-
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
