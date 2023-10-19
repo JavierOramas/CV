@@ -35,11 +35,19 @@ jobs:
       - name: Install pdftk
         run: sudo apt-get update && sudo apt-get install pdftk
 
-      - name: Remove Images from PDF EN
-        run: pdftk CV_Javier_EN.pdf cat 1-end output CV_Javier_EN_light.pdf
-      
-      - name: Remove Images from PDF ES
-        run: pdftk CV_Javier_ES.pdf cat 1-end output CV_Javier_ES_light.pdf
+      - name: Install Python
+        run: |
+          sudo apt-get install python3
+          pip install PyPDF2
+
+      - name: Remove Images from PDF
+        run: |
+          python3 remove_images.py CV_Javier_ES.pdf CV_Javier_ES_light.pdf
+
+
+      - name: Remove Images from PDF
+        run: |
+          python3 remove_images.py CV_Javier_EN.pdf CV_Javier_EN_light.pdf
   
       - name: Create Release
         id: create_release
