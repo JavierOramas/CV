@@ -40,18 +40,6 @@ jobs:
       
       - name: Remove Images from PDF ES
         run: pdftk CV_Javier_ES.pdf cat 1-end output CV_Javier_ES_light.pdf
-
-      - name: Upload Output PDF
-        uses: actions/upload-artifact@v2
-        with:
-          name: ./CV_Javier_EN_light
-          path: CV_Javier_EN_light.pdf
-  
-      - name: Upload Output PDF
-        uses: actions/upload-artifact@v2
-        with:
-          name: ./CV_Javier_ES_light
-          path: CV_Javier_ES_light.pdf
   
       - name: Create Release
         id: create_release
