@@ -20,16 +20,6 @@ jobs:
           compiler: lualatex
           args: -interaction=nonstopmode -shell-escape
 
-      - name: Build PDF EN without Images
-        run: |
-          # Remove images from the LaTeX source directory
-          find . -name "*.png" -exec rm -f {} \;
-          find . -name "*.jpg" -exec rm -f {} \;
-
-          # Rebuild the PDF without images
-          lualatex CV_Javier_EN.tex -jobname=CV_Javier_EN_no_images -interaction=nonstopmode -shell-escape
-        working-directory: ${{ github.workspace }}
-
       - name: lualatex main es
         uses: dante-ev/latex-action@latest
         with:
@@ -37,23 +27,32 @@ jobs:
           compiler: lualatex
           args: -interaction=nonstopmode -shell-escape
       
-
-      - name: Build PDF ES without Images
-        run: |
-          # Remove images from the LaTeX source directory
-          find . -name "*.png" -exec rm -f {} \;
-          find . -name "*.jpg" -exec rm -f {} \;
-
-          # Rebuild the PDF without images
-          lualatex CV_Javier_ES.tex -jobname=CV_Javier_ES_no_images -interaction=nonstopmode -shell-escape
-        working-directory: ${{ github.workspace }}
-      
       - uses: dev-drprasad/delete-tag-and-release@v1.0 # PRERELEASE is v1.0 and can also be used to test and give us feedback
         with:
           tag_name: CV #(required) tag name to delete 
           github_token: ${{ secrets.GITHUB_TOKEN }} # (required) a GitHub token with write access to the repo that needs to be modified
           delete_release: true #(optional) default: true 
+      - name: Install pdftk
+        run: sudo apt-get update && sudo apt-get install pdftk
 
+      - name: Remove Images from PDF EN
+        run: pdftk CV_Javier_EN.pdf cat 1-end output CV_Javier_EN_light.pdf
+      
+      - name: Remove Images from PDF ES
+        run: pdftk CV_Javier_ES.pdf cat 1-end output CV_Javier_ES_light.pdf
+
+      - name: Upload Output PDF
+        uses: actions/upload-artifact@v2
+        with:
+          name: ./CV_Javier_EN_light
+          path: CV_Javier_EN_light.pdf
+  
+      - name: Upload Output PDF
+        uses: actions/upload-artifact@v2
+        with:
+          name: ./CV_Javier_ES_light
+          path: CV_Javier_ES_light.pdf
+  
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -65,7 +64,7 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset
+      - name: Upload Release Asset EN
         id: upload-release-asset-en
         uses: actions/upload-release-asset@v1
         env:
@@ -74,16 +73,6 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
           asset_path: ./CV_Javier_EN.pdf
           asset_name: CV_Javier_EN.pdf
-          asset_content_type: pdf
-      - name: Upload Release Asset
-        id: upload-release-asset-en-no-img
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: ./CV_Javier_EN_no_images.pdf
-          asset_name: CV_Javier_EN_no_images.pdf
           asset_content_type: pdf
           
       - name: Upload Release Asset ES
@@ -96,6 +85,18 @@ jobs:
           asset_path: ./CV_Javier_ES.pdf
           asset_name: CV_Javier_ES.pdf
           asset_content_type: pdf
+
+          
+      - name: Upload Release Asset EN
+        id: upload-release-asset-en-no-img
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: ./CV_Javier_EN_light.pdf
+          asset_name: CV_Javier_EN_light.pdf
+          asset_content_type: pdf
           
       - name: Upload Release Asset ES
         id: upload-release-asset-es-no-img
@@ -104,6 +105,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: ./CV_Javier_ES_no_images.pdf
-          asset_name: CV_Javier_ES_no_images.pdf
+          asset_path: ./CV_Javier_ES_light.pdf
+          asset_name: CV_Javier_ES_light.pdf
           asset_content_type: pdf
+
