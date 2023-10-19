@@ -1,7 +1,12 @@
-import PyPDF2
+import sys
+from os import PyPDF2
 
-input_pdf = "your_document.pdf"
-output_pdf = "your_document_no_images.pdf"
+if len(sys.argv) != 3:
+    print("Usage: python script_name.py input_pdf output_pdf")
+    sys.exit(1)
+
+input_pdf = sys.argv[1]
+output_pdf = sys.argv[2]
 
 with open(input_pdf, "rb") as pdf_file:
     pdf_reader = PyPDF2.PdfFileReader(pdf_file)
