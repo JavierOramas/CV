@@ -19,6 +19,7 @@ jobs:
           root_file: CV_Javier_EN.tex
           compiler: lualatex
           args: -interaction=nonstopmode -shell-escape
+          
       - name: lualatex main es
         uses: dante-ev/latex-action@latest
         with:
