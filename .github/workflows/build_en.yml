@@ -74,8 +74,8 @@ jobs:
           args: >
             -interaction=nonstopmode
             -shell-escape
-            -jobname=CV_Javier_EN_lite
             "\disableimages"
+            -jobname=CV_Javier_EN_lite
     
       - name: Compile LaTeX document (ES) without images
         uses: dante-ev/latex-action@latest
@@ -85,8 +85,8 @@ jobs:
           args: >
             -interaction=nonstopmode
             -shell-escape
-            -jobname=CV_Javier_ES_lite
             "\disableimages"
+            -jobname=CV_Javier_ES_lite
       - name: Upload Release Asset EN (no images)
         uses: actions/upload-release-asset@v1
         env:
