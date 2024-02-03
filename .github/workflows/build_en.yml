@@ -74,7 +74,7 @@ jobs:
           args: >
             -interaction=nonstopmode
             -shell-escape
-            '\def\includeimagesfalse \input{CV_Javier_EN.tex}'
+            '\def\includeimagestrue{} \input{CV_Javier_EN.tex}'
             -jobname=CV_Javier_EN_lite
     
       - name: Compile LaTeX document (ES) without images
