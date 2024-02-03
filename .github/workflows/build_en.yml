@@ -71,15 +71,23 @@ jobs:
         with:
           root_file: CV_Javier_EN.tex
           compiler: lualatex
-          args: -interaction=nonstopmode -shell-escape "\def\includeimagesfalse \input{CV_Javier_EN.tex}" -jobname=CV_Javier_EN_lite
+          args: >
+          -interaction=nonstopmode
+          -shell-escape
+          '\def\includeimagesfalse \input{CV_Javier_EN.tex}'
+          -jobname=CV_Javier_EN_lite
   
       - name: Compile LaTeX document (ES) without images
         uses: dante-ev/latex-action@latest
         with:
           root_file: CV_Javier_ES.tex
           compiler: lualatex
-          args: -interaction=nonstopmode -shell-escape "\def\includeimagesfalse \input{CV_Javier_ES.tex}" -jobname=CV_Javier_ES_lite
-      - name: Upload Release Asset EN (Original)
+          args: >
+          -interaction=nonstopmode
+          -shell-escape
+          '\def\includeimagesfalse \input{CV_Javier_ES.tex}'
+          -jobname=CV_Javier_ES_lite
+      - name: Upload Release Asset EN (no images)
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -89,7 +97,7 @@ jobs:
           asset_name: CV_Javier_EN_lite.pdf
           asset_content_type: application/pdf
           
-      - name: Upload Release Asset ES (Original)
+      - name: Upload Release Asset ES (no images)
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
