@@ -4,7 +4,9 @@
 \usepackage[top=1cm, bottom=1cm, left=2cm, right=2cm]{geometry}
 \newif\ifincludeimages
 \includeimagestrue % Include images by default
-
+\newcommand{\disableimages}{
+  \includeimagesfalse
+}
 % Package for better font handling
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
