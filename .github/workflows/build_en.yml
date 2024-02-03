@@ -13,21 +13,37 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
-      - name: lualatex main en
+      - name: Compile LaTeX document (EN) with images
         uses: dante-ev/latex-action@latest
         with:
           root_file: CV_Javier_EN.tex
           compiler: lualatex
           args: -interaction=nonstopmode -shell-escape
+
           
-      - name: lualatex main es
+      - name: Compile LaTeX document (ES) with images
         uses: dante-ev/latex-action@latest
         with:
           root_file: CV_Javier_ES.tex
           compiler: lualatex
           args: -interaction=nonstopmode -shell-escape
+
+      - name: Compile LaTeX document (EN) without images
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: CV_Javier_EN.tex
+          compiler: lualatex
+          args: -interaction=nonstopmode -shell-escape "\PassOptionsToPackage{draft}{graphicx}"
+
+      - name: Compile LaTeX document (ES) without images
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: CV_Javier_ES.tex
+          compiler: lualatex
+          args: -interaction=nonstopmode -shell-escape "\PassOptionsToPackage{draft}{graphicx}"
       
-      - uses: dev-drprasad/delete-tag-and-release@v1.0 # PRERELEASE is v1.0 and can also be used to test and give us feedback
+      - name: Delete previous tag and release
+        uses: dev-drprasad/delete-tag-and-release@v1.0
         with:
           tag_name: CV #(required) tag name to delete 
           github_token: ${{ secrets.GITHUB_TOKEN }} # (required) a GitHub token with write access to the repo that needs to be modified
@@ -44,8 +60,7 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset
-        id: upload-release-asset-en
+      - name: Upload Release Asset EN (Original)
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -53,9 +68,9 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
           asset_path: ./CV_Javier_EN.pdf
           asset_name: CV_Javier_EN.pdf
-          asset_content_type: pdf 
-      - name: Upload Release Asset ES
-        id: upload-release-asset-es
+          asset_content_type: application/pdf
+          
+      - name: Upload Release Asset ES (Original)
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -63,4 +78,24 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
           asset_path: ./CV_Javier_ES.pdf
           asset_name: CV_Javier_ES.pdf
-          asset_content_type: pdf
+          asset_content_type: application/pdf
+
+      - name: Upload Release Asset EN (No Images)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: ./CV_Javier_EN_draft.pdf
+          asset_name: CV_Javier_EN_draft.pdf
+          asset_content_type: application/pdf
+          
+      - name: Upload Release Asset ES (No Images)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: ./CV_Javier_ES_draft.pdf
+          asset_name: CV_Javier_ES_draft.pdf
+          asset_content_type: application/pdf
