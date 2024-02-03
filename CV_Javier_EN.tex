@@ -2,6 +2,8 @@
 
 % Package for setting page margins
 \usepackage[top=1cm, bottom=1cm, left=2cm, right=2cm]{geometry}
+\newif\ifincludeimages
+\includeimagestrue % Include images by default
 
 % Package for better font handling
 \usepackage[T1]{fontenc}
@@ -50,23 +52,36 @@
     \end{minipage}
 \end{center}
 
+% Experience section
+\section*{Experience}
+    \textbf{Trained Professor (Computer Networks)} \hfill since \textbf{01/2024}\\ 
+    MATCOM, UH
+    \href{matcom.uh.cu}{MATCOM}\\
+    \\
+    \vspace{0.1cm}\\
+    \textbf{Backend Developer} \hfill since \textbf{10/2023}\\ 
+    Fonoma Cuba, (remote)
+    \href{fonoma.com}{Fonoma}\\
+    Mostly working in django, fastapi, nodejs, unit test and DevOps\\
+    \vspace{0.1cm}\\
+    \textbf{Developer} \hfill \textbf{since 2021}\\ 
+    American Behavioral Solutions, Arizona (remote)
+    \href{americanbehavioralsolutions.com}{ABS}
+    Development and deployment of a Management system to control Supervisions
+
+
+
 % Education section
 \section*{Education}
-\textbf{Bachelors Degree Student in Computer Science} \hfill since \textbf{2018}\\
+\textbf{Research Intern (AI)} \hfill \textbf{2023-2024}\\
+\href{https://matcom.in/}{MATCOM}, \href{https://uh.cu}{Universidad de La Habana}, Cuba\\
+\href{https://www.colmex.mx/}{El Colegio de M\'exico}, CDMX, M\'exico\\
+\vspace{0.1cm}\\
+\textbf{Bachelors Degree Student in Computer Science} \hfill \textbf{2018-2024}\\
 \href{https://matcom.in/}{MATCOM}, \href{https://uh.cu}{Havana University}, Cuba\\
 \vspace{0.1cm}\\
 \textbf{\hyperref[sec:bachelor]{Science Bachelor}} \hfill \textbf{2018}\\
 Vocational Institute of Exact Sciences  Ernesto Guevara, Cuba
-
-% % Experience section
-\section*{Experience}
-    \textbf{Developer} \hfill \textbf{since 2021}\\ 
-    American Behavioral Solutions, Arizona (remote)
-    \href{americanbehavioralsolutions.com}{ABS}
-    \begin{itemize}
-        \item Development and deployment of a Management system to control Supervisions
-    \end{itemize}
-
 
 % Personal Projects section
 \section*{Personal Projects}
@@ -322,39 +337,80 @@ Academic Project\\
 \raggedcolumns
 \textbf{Programming Languages}
 \begin{itemize}
+    \ifincludeimages
     \item \includegraphics[height=10pt]{images/icons/python.png}
+    \fi
     Python
+    \ifincludeimages
     \item \includegraphics[height=10pt]{images/icons/c.png}
+    \fi
     C
+    \ifincludeimages
     \item \includegraphics[height=10pt]{images/icons/cpp.png}
+    \fi
     C++
+    \ifincludeimages
     \item \includegraphics[height=10pt]{images/icons/csharp.png}
+    \fi
     C\#
+    \ifincludeimages
     \item \includegraphics[height=10pt]{images/icons/mysql-original.png}
+    \ifincludeimages
     SQL
+    \ifincludeimages
     \item \includegraphics[height=10pt]{images/icons/rust-plain.png}
+    \fi
     Rust
+    \ifincludeimages
     \item \includegraphics[height=10pt]{images/icons/go-original-wordmark.png}
+    \fi
     Go
+    \ifincludeimages
     \item \includegraphics[height=10pt]{images/icons/dart.png}
+    \fi
     Dart
+    \ifincludeimages
     \item \includegraphics[height=10pt]{images/icons/haskell-original.png}
+    \fi
     Haskell
+    \ifincludeimages
     \item \includegraphics[height=10pt]{images/icons/javascript-original}
+    \fi
     Javascript
-    \item \includegraphics[height=10pt]{images/icons/latex-original.png} LaTeX
-    \item \includegraphics[height=10pt]{images/icons/bash-original.png} Bash
-    \item \includegraphics[height=10pt]{images/icons/markdown-original.png} Markdown
+    \ifincludeimages
+    \item \includegraphics[height=10pt]{images/icons/latex-original.png} 
+    \fi
+    LaTeX
+    \ifincludeimages
+    \item \includegraphics[height=10pt]{images/icons/bash-original.png} 
+    \fi
+    Bash
+    \ifincludeimages
+    \item \includegraphics[height=10pt]{images/icons/markdown-original.png} 
+    \fi
+    Markdown
 \end{itemize}
 
 \section*{Other Tecnologies}
 \begin{itemize}
     % \item \includegraphics[height=10pt]{images/icons/}
-    \item \includegraphics[height=10pt]{images/icons/sklearn.png} SKLearn
+    \ifincludeimages
+    \item \includegraphics[height=10pt]{images/icons/sklearn.png} 
+    \fi
+    SKLearn
     \item Transformers
-    \item \includegraphics[height=10pt]{images/icons/huggingface.png} Huggingface
-    \item \includegraphics[height=10pt]{images/icons/tensorflow-original.png} Tensorflow
-    \item \includegraphics[height=10pt]{images/icons/pytorch-original.png} Pytorch
+    \ifincludeimages
+    \item \includegraphics[height=10pt]{images/icons/huggingface.png} \fi 
+    Huggingface
+    \ifincludeimages
+    \item \includegraphics[height=10pt]{images/icons/tensorflow-original.png} 
+    \fi  
+    Tensorflow
+    \ifincludeimages
+    \item \includegraphics[height=10pt]{images/icons/pytorch-original.png} 
+    \fi 
+    Pytorch
+    
     \item \includegraphics[height=10pt]{images/icons/pandas-original.png} Pandas
     \item \includegraphics[height=10pt]{images/icons/numpy-original.png} Numpy
     \item \includegraphics[height=10pt]{images/icons/docker.png} Docker
