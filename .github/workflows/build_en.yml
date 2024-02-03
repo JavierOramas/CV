@@ -33,14 +33,14 @@ jobs:
         with:
           root_file: CV_Javier_EN.tex
           compiler: lualatex
-          args: -interaction=nonstopmode -shell-escape "\def\includeimagesfalse{} \input{CV_Javier_EN.tex}"
+          args: -interaction=nonstopmode -shell-escape "\def\includeimagesfalse{} \input{CV_Javier_EN.tex}"-jobname=CV_Javier_EN_lite
   
       - name: Compile LaTeX document (ES) without images
         uses: dante-ev/latex-action@latest
         with:
           root_file: CV_Javier_ES.tex
           compiler: lualatex
-          args: -interaction=nonstopmode -shell-escape "\def\includeimagesfalse{} \input{CV_Javier_ES.tex}"
+          args: -interaction=nonstopmode -shell-escape "\def\includeimagesfalse{} \input{CV_Javier_ES.tex}" -jobname=CV_Javier_ES_lite
   
       - name: Delete previous tag and release
         uses: dev-drprasad/delete-tag-and-release@v1.0
