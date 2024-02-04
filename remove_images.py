@@ -1,21 +1,30 @@
-import sys
-from os import PyPDF2
+import fitz  # PyMuPDF
 
-if len(sys.argv) != 3:
-    print("Usage: python script_name.py input_pdf output_pdf")
-    sys.exit(1)
+def remove_images_from_pdf(input_pdf_path, output_pdf_path):
+    # Open the PDF file
+    document = fitz.open(input_pdf_path)
+    
+    # Iterate through each page
+    for page_num in range(1,len(document)):
+        page = document[page_num]
+        
+        # Get the list of image dictionaries on the current page
+        images = page.get_images(full=True)
+        # Iterate through each image
+        for image in images[:]:
+            xref = image[0]  # xref is the reference number of the object
+            print(page, image)
+            document._deleteObject(xref)  # Delete the image object
+    
+    # Save the modified PDF to a new file
+    document.save(output_pdf_path, garbage=3, deflate=True)
+    document.close()
 
-input_pdf = sys.argv[1]
-output_pdf = sys.argv[2]
+# Example usage:
+input_pdf_path = 'CV_Javier_EN.pdf'
+output_pdf_path = 'CV_Javier_EN_lite.pdf'
+remove_images_from_pdf(input_pdf_path, output_pdf_path)
 
-with open(input_pdf, "rb") as pdf_file:
-    pdf_reader = PyPDF2.PdfFileReader(pdf_file)
-    pdf_writer = PyPDF2.PdfFileWriter()
-
-    for page_num in range(pdf_reader.getNumPages()):
-        page = pdf_reader.getPage(page_num)
-        page.mediaBox.upperRight = (page.mediaBox.getUpperRight_x(), page.mediaBox.getUpperRight_y())
-        pdf_writer.addPage(page)
-
-    with open(output_pdf, "wb") as output_file:
-        pdf_writer.write(output_file)
+input_pdf_path = 'CV_Javier_ES.pdf'
+output_pdf_path = 'CV_Javier_ES_lite.pdf'
+remove_images_from_pdf(input_pdf_path, output_pdf_path)

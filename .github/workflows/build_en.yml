@@ -65,26 +65,23 @@ jobs:
           asset_path: ./CV_Javier_ES.pdf
           asset_name: CV_Javier_ES.pdf
           asset_content_type: application/pdf
-        
-      - name: Compile LaTeX document (EN) without images
-        uses: dante-ev/latex-action@latest
+
+      # Sets up a Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          root_file: CV_Javier_EN.tex
-          compiler: lualatex
-          args: >
-            -interaction=nonstopmode
-            -jobname=CV_Javier_EN_lite
-            "\disableimages"
-    
-      - name: Compile LaTeX document (ES) without images
-        uses: dante-ev/latex-action@latest
-        with:
-          root_file: CV_Javier_ES.tex
-          compiler: lualatex
-          args: >
-            -interaction=nonstopmode
-            -jobname=CV_Javier_ES_lite
-            "\disableimages"
+          python-version: '3.11' # Choose the Python version you need
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      # Run Python script
+      - name: Run script
+        run: python remove_images.py
+          
       - name: Upload Release Asset EN (no images)
         uses: actions/upload-release-asset@v1
         env:
