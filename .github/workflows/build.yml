@@ -56,15 +56,15 @@ jobs:
           asset_name: CV_Javier_ES.pdf
           asset_content_type: application/pdf
 
-      - name: Upload ES Lite PDF
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ needs.setup.outputs.upload_url }}
-          asset_path: ./CV_Javier_ES_lite.pdf
-          asset_name: CV_Javier_ES_lite.pdf
-          asset_content_type: application/pdf
+      # - name: Upload ES Lite PDF
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ needs.setup.outputs.upload_url }}
+      #     asset_path: ./CV_Javier_ES_lite.pdf
+      #     asset_name: CV_Javier_ES_lite.pdf
+      #     asset_content_type: application/pdf
 
   build-en:
     needs: setup
