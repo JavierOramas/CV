@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3  # Updated to v3
 
       - name: Delete existing release
         id: delete_release
-        uses: dev-drprasad/delete-tag-and-release@v0.2.1
+        uses: dev-drprasad/delete-tag-and-release@v1.0.1  # Updated to latest stable version
         with:
           tag_name: CV
           delete_release: true
@@ -23,12 +23,12 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1  # Using more maintained alternative
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: CV
-          release_name: Release CV
+          name: Release CV
           draft: false
           prerelease: false
     outputs:
@@ -38,7 +38,7 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Build ES PDF
         uses: dante-ev/latex-action@latest
         with:
@@ -47,34 +47,23 @@ jobs:
           args: -interaction=nonstopmode -shell-escape
 
       - name: Upload ES PDF
-        uses: actions/upload-release-asset@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ needs.setup.outputs.upload_url }}
-          asset_path: ./CV_Javier_ES.pdf
-          asset_name: CV_Javier_ES.pdf
-          asset_content_type: application/pdf
-
-      # - name: Upload ES Lite PDF
-      #   uses: actions/upload-release-asset@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     upload_url: ${{ needs.setup.outputs.upload_url }}
-      #     asset_path: ./CV_Javier_ES_lite.pdf
-      #     asset_name: CV_Javier_ES_lite.pdf
-      #     asset_content_type: application/pdf
+          tag_name: CV
+          files: CV_Javier_ES.pdf
 
   build-en:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4  # Updated to v4
         with:
           python-version: '3.11'
+          cache: 'pip'  # Added caching for pip dependencies
 
       - name: Install dependencies
         run: |
@@ -84,44 +73,32 @@ jobs:
       - name: Build EN Lite Files
         run: python main.py --sections "None"
         
-      - uses: actions/checkout@v2
       - name: Build EN lite PDF 
         uses: dante-ev/latex-action@latest
         with:
-            root_file: CV_Javier_EN.tex
-            compiler: lualatex
-            args: -interaction=nonstopmode -shell-escape
+          root_file: CV_Javier_EN.tex
+          compiler: lualatex
+          args: -interaction=nonstopmode -shell-escape
             
       - name: Move EN Lite Files
         run: mv CV_Javier_EN.pdf ./CV_Javier_EN_lite.pdf
 
-      - name: Upload EN Lite PDF
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ needs.setup.outputs.upload_url }}
-          asset_path: ./CV_Javier_EN_lite.pdf
-          asset_name: CV_Javier_EN_lite.pdf
-          asset_content_type: application/pdf
-
       - name: Build EN Full Version
         run: python main.py --sections "*"
         
-      - uses: actions/checkout@v2
-      - name: Build EN lite PDF 
+      - name: Build EN Full PDF 
         uses: dante-ev/latex-action@latest
         with:
-            root_file: CV_Javier_EN.tex
-            compiler: lualatex
-            args: -interaction=nonstopmode -shell-escape
+          root_file: CV_Javier_EN.tex
+          compiler: lualatex
+          args: -interaction=nonstopmode -shell-escape
 
-      - name: Upload EN Full PDF
-        uses: actions/upload-release-asset@v1
+      - name: Upload PDFs
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ needs.setup.outputs.upload_url }}
-          asset_path: ./CV_Javier_EN.pdf
-          asset_name: CV_Javier_EN_full.pdf
-          asset_content_type: application/pdf
+          tag_name: CV
+          files: |
+            CV_Javier_EN_lite.pdf
+            CV_Javier_EN.pdf
