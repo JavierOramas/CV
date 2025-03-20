@@ -122,6 +122,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.setup.outputs.upload_url }}
-          asset_path: ./CV_Javier_EN_lite.pdf
+          asset_path: ./CV_Javier_EN.pdf
           asset_name: CV_Javier_EN_full.pdf
           asset_content_type: application/pdf
