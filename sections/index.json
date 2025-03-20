@@ -1,0 +1,143 @@
+{
+    "projects": [
+        {
+            "file": "chrome_ext.tex",
+            "date": "2025-02",
+            "tags": ["js", "chrome"]
+        },
+        {
+            "file": "vcard.tex",
+            "date": "2024-11",
+            "tags": ["python"]
+        },
+        {
+            "file": "thesis.tex",
+            "date": "2024-01",
+            "tags": ["python", "AI", "nlp", "relevant"]
+        },
+        {
+            "file": "ocr_multicolumn.tex",
+            "date": "2024-01",
+            "tags": ["python", "nlp"]
+        },
+        {
+            "file": "ocr_quality.tex",
+            "date": "2023-08",
+            "tags": ["python", "nlp"]
+        },
+        {
+            "file": "distributed_system.tex",
+            "date": "2023-06",
+            "tags": ["python", "networking", "relevant"]
+        },
+        {
+            "file": "contact_matrix.tex",
+            "date": "2023-06",
+            "tags": ["python", "AI", "relevant"]
+        },
+        {
+            "file": "dsl.tex",
+            "date": "2023-01",
+            "tags": ["python", "compilation", "relevant"]
+        },
+        {
+            "file": "fifa.tex",
+            "date": "2022-12",
+            "tags": ["python", "AI", "relevant"]
+        },
+        {
+            "file": "server.tex",
+            "date": "2022-01",
+            "tags": ["c", "networking"]
+        },
+    
+        {
+            "file": "mips.tex",
+            "date": "2022-06",
+            "tags": ["misc"]
+        },
+        {
+            "file": "tictactoe.tex",
+            "date": "2021-05",
+            "tags": ["python", "AI"]
+        },
+        {
+            "file": "faq.tex",
+            "date": "2021-04",
+            "tags": ["python", "api", "AI"]
+        },
+        {
+            "file": "laluu.tex",
+            "date": "2021-01",
+            "tags": ["flutter", "dart", "mobile"]
+        },{
+            "file": "video-diet.tex",
+            "date": "2020-11",
+            "tags": ["python", "open-source"]
+        },
+        {
+            "file": "temperature_monitor.tex",
+            "date": "2020-08",
+            "tags": ["python", "flutter", "api", "mobile"]
+        },
+        {
+            "file": "covid19cuba.tex",
+            "date": "2020-07",
+            "tags": ["flutter", "dart", "mobile"]
+        },
+        {
+            "file": "dengue.tex",
+            "date": "2020-02",
+            "tags": ["python", "AI"]
+        },
+        {
+            "file": "lima_2019.tex",
+            "date": "2019-07",
+            "tags": ["python", "AI", "relevant"]
+        },
+        {
+            "file": "game.tex",
+            "date": "2019-02",
+            "tags": ["C#", "games"]
+        }
+    ],
+
+    "events": [
+        {
+            "file": "saber_uh.tex",
+            "date": "2023-05",
+            "tags": ["AI", "relevant"]
+        },
+        {
+            "file": "forum_uh.tex",
+            "date": "2022-12",
+            "tags": ["AI"]
+        },
+        {
+            "file": "python_pizza.tex",
+            "date": "2020-11",
+            "tags": ["python"]
+        },
+        {
+            "file": "driven_data.tex",
+            "date": "2020-02",
+            "tags": ["python", "AI"]
+        },
+        {
+            "file": "lima_2019.tex",
+            "date": "2019-07",
+            "tags": ["AI", "relevant", "python"]
+        },
+        {
+            "file": "game_festival.tex",
+            "date": "2019-02",
+            "tags": ["games", "C#"]
+        },
+        {
+            "file": "acm_icpc.tex",
+            "date": "2018",
+            "tags": ["c++", "Competitive", "algorithms"]
+        }
+    ]
+
+}
