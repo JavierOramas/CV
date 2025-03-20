@@ -31,7 +31,8 @@ def generate_sections(
     # aways keep the relevants
     tags_to_generate.append("relevant")
     if "*" in sections_to_generate:
-        is_lite = False
+        if "*" in tags_to_generate:
+            is_lite = False
         sections_to_generate = [
             "events",
             "awards",
@@ -93,7 +94,7 @@ def generate_sections(
         file_path = "CV_Javier_EN.pdf"
 
     compile_result = os.system(
-        f"latexmk -pdf -interaction=nonstopmode -outdir=. CV_Javier_EN.tex && mv CV_Javier_EN.pdf {file_path}"
+        f"lualatex -pdf -interaction=nonstopmode -outdir=. CV_Javier_EN.tex && mv CV_Javier_EN.pdf {file_path}"
     )
 
     if compile_result != 0:
