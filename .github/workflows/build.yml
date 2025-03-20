@@ -93,7 +93,7 @@ jobs:
             args: -interaction=nonstopmode -shell-escape
             
       - name: Move EN Lite Files
-        run: mv CV_Javier_EN_lite.pdf ./CV_Javier_EN_lite.pdf
+        run: mv CV_Javier_EN.pdf ./CV_Javier_EN_lite.pdf
 
       - name: Upload EN Lite PDF
         uses: actions/upload-release-asset@v1
