@@ -12,10 +12,21 @@ def generate_sections(
 ):
     """Generate .tex files for specified sections based on tags"""
     
+    os.makedirs("build", exist_ok=True)
 
+    # Split comma-separated values if present
+    sections_to_generate = [
+        section.strip().lower() 
+        for sections in sections_to_generate 
+        for section in sections.split(',')
+    ]
+    tags_to_generate = [
+        tag.strip().lower() 
+        for tags in tags_to_generate 
+        for tag in tags.split(',')
+    ]
     # aways keep the relevants
     tags_to_generate.append("relevant")
-
     if "*" in sections_to_generate:
         sections_to_generate = [
             "events",
@@ -70,5 +81,11 @@ def generate_sections(
         except Exception as e:
             typer.echo(f"Error writing {filename}: {str(e)}")
 
+    # Build latex file
+    os.system("latexmk -pdf -outdir=build main.tex")
+    # Clean up build files
+    os.system("latexmk -c")
+    os.system("rm -rf build")
+# Run the app
 if __name__ == "__main__":
     app()
