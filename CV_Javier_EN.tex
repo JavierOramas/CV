@@ -128,20 +128,22 @@ Vocational Institute of Exact Sciences  Ernesto Guevara, Cuba
 
 
 % Personal Projects section
-\IfFileExists{build/projects.tex}{
-    \section*{Personal Projects}
-    \input{build/projects.tex}
+\IfFileExists{build/projects.tex}{%
+    \section*{Personal Projects}%
+    \input{build/projects.tex}%
 }{}
 
-\IfFileExists{build/Events.tex}{
-
-    \section*{Events}
-    \input{build/events.tex}
+\IfFileExists{build/events.tex}{%
+    \section*{Events}%
+    \input{build/events.tex}%
 }{}
 
-\IfFileExists{build/awards.tex}{\input{build/awards.tex}}{}
+\IfFileExists{build/awards.tex}{%
+    \input{build/awards.tex}%
+}{}
 
-\IfFileExists{build/attachments.tex}{\input{build/attachments.tex}}{}
-
+\IfFileExists{build/attachments.tex}{%
+    \input{build/attachments.tex}%
+}{}
 
 \end{document}
