@@ -6,20 +6,12 @@ on:
       - master  # Change this to match the branch you want to trigger the build on
 
 jobs:
-  build:
+  setup:
     runs-on: ubuntu-latest
-  
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
-      - name: lualatex main es
-        uses: dante-ev/latex-action@latest
-        with:
-          root_file: CV_Javier_ES.tex
-          compiler: lualatex
-          args: -interaction=nonstopmode -shell-escape
-  
       - name: Delete existing release
         id: delete_release
         uses: dev-drprasad/delete-tag-and-release@v0.2.1
@@ -39,64 +31,83 @@ jobs:
           release_name: Release CV
           draft: false
           prerelease: false
-          
-      - name: Upload Release Asset ES
-        id: upload-release-asset-es
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+
+  build-es:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build ES PDF
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: CV_Javier_ES.tex
+          compiler: lualatex
+          args: -interaction=nonstopmode -shell-escape
+
+      - name: Upload ES PDF
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          upload_url: ${{ needs.setup.outputs.upload_url }}
           asset_path: ./CV_Javier_ES.pdf
           asset_name: CV_Javier_ES.pdf
           asset_content_type: application/pdf
 
-      # Sets up a Python environment
+      - name: Upload ES Lite PDF
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.setup.outputs.upload_url }}
+          asset_path: ./CV_Javier_ES_lite.pdf
+          asset_name: CV_Javier_ES_lite.pdf
+          asset_content_type: application/pdf
+
+  build-en:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.11' # Choose the Python version you need
+          python-version: '3.11'
 
-      # Install dependencies
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-full
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      # Run Python script
-      - name: Run script
-        run: python main.py --sections "None" 
-          
-      - name: Upload Release Asset EN ( lite )
+      - name: Build EN Lite Version
+        run: python main.py --sections "None"
+
+      - name: Upload EN Lite PDF
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          upload_url: ${{ needs.setup.outputs.upload_url }}
           asset_path: ./CV_Javier_EN_lite.pdf
           asset_name: CV_Javier_EN_lite.pdf
-          asset_content_type: application/pdf
-      
-      - name: Run script
-        run: python main.py --sections "*" 
-          
-      - name: Upload Release Asset EN ( Full )
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: ./CV_Javier_EN_lite.pdf
-          asset_name: CV_Javier_EN_lite.pdf
-          asset_content_type: application/pdf
-          
-      - name: Upload Release Asset ES (no images)
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: ./CV_Javier_ES_lite.pdf
-          asset_name: CV_Javier_ES_lite.pdf
           asset_content_type: application/pdf
 
+      - name: Build EN Full Version
+        run: python main.py --sections "*"
+
+      - name: Upload EN Full PDF
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.setup.outputs.upload_url }}
+          asset_path: ./CV_Javier_EN_lite.pdf
+          asset_name: CV_Javier_EN_full.pdf
+          asset_content_type: application/pdf
