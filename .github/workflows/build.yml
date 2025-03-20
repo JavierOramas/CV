@@ -76,16 +76,24 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install TeX Live
-        uses: xu-cheng/latex-action@v3
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Build EN Lite Version
+      - name: Build EN Lite Files
         run: python main.py --sections "None"
+        
+      - uses: actions/checkout@v2
+      - name: Build EN lite PDF 
+        uses: dante-ev/latex-action@latest
+        with:
+            root_file: CV_Javier_EN.tex
+            compiler: lualatex
+            args: -interaction=nonstopmode -shell-escape
+            
+      - name: Move EN Lite Files
+        run: mv CV_Javier_EN_lite.pdf ./CV_Javier_EN_lite.pdf
 
       - name: Upload EN Lite PDF
         uses: actions/upload-release-asset@v1
@@ -99,6 +107,14 @@ jobs:
 
       - name: Build EN Full Version
         run: python main.py --sections "*"
+        
+      - uses: actions/checkout@v2
+      - name: Build EN lite PDF 
+        uses: dante-ev/latex-action@latest
+        with:
+            root_file: CV_Javier_EN.tex
+            compiler: lualatex
+            args: -interaction=nonstopmode -shell-escape
 
       - name: Upload EN Full PDF
         uses: actions/upload-release-asset@v1

@@ -14,6 +14,9 @@ def generate_sections(
     tags_to_generate: List[str] = typer.Option(
         ["*"], "--tag", "-t", help="Tags to filter content (e.g. AI, Python)"
     ),
+    compile : bool = typer.Option(
+        True, "--compile", "-c", help="Compile the latex file"
+    )
 ):
     """Generate .tex files for specified sections based on tags"""
 
@@ -92,28 +95,28 @@ def generate_sections(
         file_path = "CV_Javier_EN_lite.pdf"
     else:
         file_path = "CV_Javier_EN.pdf"
+    if compile:
+        compile_result = os.system(
+            f"lualatex -pdf -interaction=nonstopmode -outdir=. CV_Javier_EN.tex && mv CV_Javier_EN.pdf {file_path}"
+        )
 
-    compile_result = os.system(
-        f"lualatex -pdf -interaction=nonstopmode -outdir=. CV_Javier_EN.tex && mv CV_Javier_EN.pdf {file_path}"
-    )
+        if compile_result != 0:
+            typer.echo("LaTeX compilation failed. Checking log file...")
+            try:
+                with open("CV_Javier_EN.log", "r") as log_file:
+                    log_content = log_file.read()
+                    # Look for error messages in the log
+                    error_start = log_content.find("!")
+                    if error_start != -1:
+                        # Get the context around the error
+                        error_context = log_content[error_start : error_start + 500]
+                        typer.echo(f"\nError details:\n{error_context}\n")
+            except FileNotFoundError:
+                typer.echo("Could not find log file for additional error details.")
 
-    if compile_result != 0:
-        typer.echo("LaTeX compilation failed. Checking log file...")
-        try:
-            with open("CV_Javier_EN.log", "r") as log_file:
-                log_content = log_file.read()
-                # Look for error messages in the log
-                error_start = log_content.find("!")
-                if error_start != -1:
-                    # Get the context around the error
-                    error_context = log_content[error_start : error_start + 500]
-                    typer.echo(f"\nError details:\n{error_context}\n")
-        except FileNotFoundError:
-            typer.echo("Could not find log file for additional error details.")
-
-    # Clean up build files
-    os.system("latexmk -c")
-    os.system("rm -rf build")
+        # Clean up build files
+        os.system("latexmk -c")
+        os.system("rm -rf build")
 
 
 # Run the app
