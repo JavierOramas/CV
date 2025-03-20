@@ -26,3 +26,6 @@ CV_Javier_EN.bbl
 CV_Javier_EN.odt
 pdflatex121332.fls
 CV_Javier_EN.odt
+build/*
+*.pyc
+__pycache__/*

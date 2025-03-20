@@ -13,20 +13,13 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
-      - name: lualatex main en
-        uses: dante-ev/latex-action@latest
-        with:
-          root_file: CV_Javier_EN.tex
-          compiler: lualatex
-          args: -interaction=nonstopmode -shell-escape
-          
       - name: lualatex main es
         uses: dante-ev/latex-action@latest
         with:
           root_file: CV_Javier_ES.tex
           compiler: lualatex
           args: -interaction=nonstopmode -shell-escape
-
+  
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -74,9 +67,22 @@ jobs:
 
       # Run Python script
       - name: Run script
-        run: python remove_images.py
+        run: python main.py --sections "None" 
           
-      - name: Upload Release Asset EN (no images)
+      - name: Upload Release Asset EN ( lite )
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: ./CV_Javier_EN_lite.pdf
+          asset_name: CV_Javier_EN_lite.pdf
+          asset_content_type: application/pdf
+      
+      - name: Run script
+        run: python main.py --sections "*" 
+          
+      - name: Upload Release Asset EN ( Full )
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
