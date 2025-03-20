@@ -20,6 +20,15 @@ jobs:
           compiler: lualatex
           args: -interaction=nonstopmode -shell-escape
   
+      - name: Delete existing release
+        id: delete_release
+        uses: dev-drprasad/delete-tag-and-release@v0.2.1
+        with:
+          tag_name: CV
+          delete_release: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
